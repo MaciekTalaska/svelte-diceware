@@ -8,11 +8,19 @@
   var words = WordsRepository.getWords(en);
 
 	let password = "";
+	let separator = "-"
 
 	function generatePassword() {
-    let key = Dice.rollDices(diceCount);
-		let newWord = words.get(key);
-		password += newWord + ".";
+		password = "";
+		for (var i = 0; i < passwordLength; i++ ) {
+			let key = Dice.rollDices(diceCount);
+			let newWord = words.get(key);
+			if (password !== "") {
+				password += separator + newWord
+			} else {
+				password = newWord;
+			}
+		}
 }
 </script>
 
