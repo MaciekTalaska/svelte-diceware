@@ -2,10 +2,10 @@
   import WordsRepository from "./repo.js";
   import Dice from './dice.js';
 	import en from './en.txt';
-	
+
 	var diceCount = 4;
 	var passwordLength = 4;
-  var words = WordsRepository.getWords(en);
+	var words = WordsRepository.getWords(en);
 
 	let password = "";
 	let separator = "-"

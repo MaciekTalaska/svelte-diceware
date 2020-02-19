@@ -1,9 +1,3 @@
-//var dicewareListUrl = require('./en.txt');
-//import dicewareListUrl = 
-
-//import words from './en.txt';
-//import txt from './en.txt';
-
 let WordsRepository = class  {
   static getWords(data) {
     let list = Array.from(data.split(/\n/));
