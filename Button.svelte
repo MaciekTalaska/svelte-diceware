@@ -1,11 +1,10 @@
 <script>
-  import WordsRepository from "./repo.js";
-  import Dice from './dice.js';
-	import en from './en.txt';
+  import getWordsMap from "./repo.js";
+  import rollDices from './dice.js';
 
 	var diceCount = 4;
 	var passwordLength = 4;
-	var words = WordsRepository.getWords(en);
+	var words =  getWordsMap();
 
 	let password = "";
 	let separator = "-"
@@ -13,7 +12,7 @@
 	function generatePassword() {
 		password = "";
 		for (var i = 0; i < passwordLength; i++ ) {
-			let key = Dice.rollDices(diceCount);
+			let key = rollDices(diceCount);
 			let newWord = words.get(key);
 			if (password !== "") {
 				password += separator + newWord
