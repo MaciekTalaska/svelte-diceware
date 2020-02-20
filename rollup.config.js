@@ -5,8 +5,6 @@ import svelte from "rollup-plugin-svelte";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
-import url from '@rollup/plugin-url';
-import { string } from "rollup-plugin-string";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -36,11 +34,6 @@ export default {
     // https://github.com/rollup/rollup-plugin-commonjs
     resolve(),
     commonjs(),
-    url(),
-    string({
-      // Required to be specified
-      include: "**/*.txt"
-    }),
     // If we're building for production (npm run build
     // instead of npm run dev), minify
     production && terser()
