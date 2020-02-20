@@ -5,7 +5,7 @@
 
 	let diceCount = 4;
 	let passwordLength = 4;
-	let words = new Map(); 
+	let words = null; 
 	let password = "";
 	let separator = "-";
 	

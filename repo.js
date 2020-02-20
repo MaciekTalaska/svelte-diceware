@@ -1,5 +1,3 @@
-import en from './en.txt';
-
 let getWordsMap = function() {
   let url = location.href + "en.txt";
   return loadWordsList(url).then(data => data);
@@ -18,7 +16,9 @@ function getWordsMapFromString(data) {
 
 function loadWordsList(url) {
   return new Promise((resolve, reject) => {
-    fetch(url)
+    let headers = new Headers();
+    headers.append('Content-type', 'text/plain; charset=UTF-8');
+    fetch(url, headers)
       .then(res => res.text())
       .then(data => {
         let map = getWordsMapFromString(data);

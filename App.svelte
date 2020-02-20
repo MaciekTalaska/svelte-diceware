@@ -1,8 +1,5 @@
 <script>
   import Button from "./Button.svelte";
-
-  var words = null;
-
 </script>
 
 <style>
@@ -13,6 +10,6 @@
 </style>
 
 <main>
-	<h1>Diceware passwrod generator in Svelte</h1>
-	<Button />
+  <h1>Diceware passwrod generator in Svelte</h1>
+  <Button />
 </main>
