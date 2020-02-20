@@ -1,6 +1,6 @@
-const diceCount = 4;
+const diceCount = 5;
 
-let rollDices = function (dices) {
+let rollDices = function(dices) {
   if (dices < 1) {
     throw new Error('[Dice.rollDices]: at least one dice has to be thrown!');
   }
@@ -22,9 +22,10 @@ function truncate(n) {
 function dicesToKey(numbers) {
   let array = numbers.map(n => truncate(n));
   if (array.length > diceCount) {
-    array.length = 4;
+    array.length = 5;
   }
   let key = array.join('');
+  console.log('key ', key)
   return key;
 }
 

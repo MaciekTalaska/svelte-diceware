@@ -3,19 +3,26 @@
   import rollDices from './dice.js';
   import { onMount } from "svelte";
 
-	let diceCount = 4;
+	// let diceCount = 5;
 	let passwordLength = 4;
-	let words = null; 
+	// let words = null; 
 	let password = "";
 	let separator = "-";
-	
+	let language = "fi";
+	let all_languages = ['en', 'pl', 'fi', 'mi'];
+	let repository = new Map();
+
 	onMount(async function() {
-		words =  await getWordsMap();
+		let words =  await getWordsMap(language);
+		repository.set(language, words);
 	})
 
 	function generatePassword() {
 		password = "";
+		let words = repository.get(language).words;
+		console.log('words2: ', words);
 		for (var i = 0; i < passwordLength; i++ ) {
+			let diceCount = repository.get(language).diceCount;
 			let key = rollDices(diceCount);
 			let newWord = words.get(key);
 			if (password !== "") {
@@ -51,6 +58,15 @@
 </style>
 
 <div class="container">
+	<div>
+		<label class="column">language</label>
+		<select class="column" bind:value={language} on:change="{async (e) => {let words = await getWordsMap(language); repository.set(language, words); } }">
+			<option value="en">English</option>
+			<option value="pl">Polish</option>
+			<option value="fi">Finnish</option>
+			<option value="mi">Maori</option>
+		</select>
+	</div>
 	<div >
 		<label class="column">separator:</label>
 		<input class="column" bind:value={separator} />
@@ -64,6 +80,6 @@
 			Generate password
 		</button>
 	</div>
-	<p>generated password:</p>
+	<!-- <p>generated password:</p> -->
 	<p>{password}</p>
 </div>

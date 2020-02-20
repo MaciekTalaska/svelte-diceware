@@ -32,7 +32,7 @@ export default {
     copy({
       targets: [
         { src: 'index.html', dest: 'public' },
-        { src: 'diceware-en.txt', dest: 'public' }
+        { src: 'diceware-*.txt', dest: 'public' }
       ]
     }),
 

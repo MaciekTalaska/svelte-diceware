@@ -1,17 +1,31 @@
-let getWordsMap = function() {
-  let url = location.href + "diceware-en.txt";
+let getWordsMap = function(language) {
+  let url = location.href + "diceware-" + language + ".txt";
   return loadWordsList(url).then(data => data);
 }
 
+// returns an object containing:
+//   diceCount: number of dices to throw
+//   words: map (k,v) of (index, word)
 function getWordsMapFromString(data) {
   let list = Array.from(data.split(/\n/));
   let map = new Map();
 
+  let diceCount = 0;
   list.forEach(line => {
-    let [k, v] = line.split(/\t/);
+    let [k, v] = line.split(/\s+/);
+    if (diceCount == 0) {
+      diceCount = k.length;
+      console.log('k lenghth', diceCount);
+    }
+
     map.set(k, v);
   });
-  return map;
+  return {
+    diceCount: diceCount,
+    words: map
+  };
+  //console.log('length of words: ', map.size);
+  //return map;
 }
 
 function loadWordsList(url) {
