@@ -1,13 +1,17 @@
 <script>
   import getWordsMap from "./repo.js";
   import rollDices from './dice.js';
+  import { onMount } from "svelte";
 
-	var diceCount = 4;
+	let diceCount = 4;
 	let passwordLength = 4;
-	var words =  getWordsMap();
-
+	let words = new Map(); 
 	let password = "";
-	let separator = "-"
+	let separator = "-";
+	
+	onMount(async function() {
+		words =  await getWordsMap();
+	})
 
 	function generatePassword() {
 		password = "";
