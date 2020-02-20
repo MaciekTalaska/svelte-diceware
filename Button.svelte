@@ -56,7 +56,7 @@
 		<input class="column" bind:value={separator} />
 	</div>
 	<div>
-		<label class="column">password length:</label>
+		<label class="column">words per password (4-10):</label>
 		<input class="column" type="number" bind:value={passwordLength} min=4 max=10/>
 	</div>
 	<div>

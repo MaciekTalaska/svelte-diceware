@@ -1,5 +1,5 @@
 let getWordsMap = function() {
-  let url = location.href + "en.txt";
+  let url = location.href + "diceware-en.txt";
   return loadWordsList(url).then(data => data);
 }
 

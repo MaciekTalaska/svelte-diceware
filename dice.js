@@ -1,6 +1,5 @@
 const diceCount = 4;
 
-
 let rollDices = function (dices) {
   if (dices < 1) {
     throw new Error('[Dice.rollDices]: at least one dice has to be thrown!');
