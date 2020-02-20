@@ -1,5 +1,5 @@
 {
-  "name": "svelte",
+  "name": "svelte-diceware-example",
   "version": "1.0.0",
   "devDependencies": {
     "@rollup/plugin-url": "^4.0.2",
@@ -25,7 +25,9 @@
   },
   "keywords": [
     "svelte",
-    "starter"
+    "diceware",
+    "password",
+    "password generator"
   ],
-  "description": "Svelte example starter project"
+  "description": "Diceware password generator in Svelte"
 }
