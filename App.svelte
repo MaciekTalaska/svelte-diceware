@@ -10,6 +10,6 @@
 </style>
 
 <main>
-  <h1>Diceware passwrod generator in Svelte</h1>
+  <h1>Diceware password generator in Svelte</h1>
   <Button />
 </main>
