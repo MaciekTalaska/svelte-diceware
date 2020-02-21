@@ -3,9 +3,7 @@
   import rollDices from './dice.js';
   import { onMount } from "svelte";
 
-	// let diceCount = 5;
 	let passwordLength = 4;
-	// let words = null; 
 	let password = "";
 	let separator = "-";
 	let language = "fi";
@@ -20,7 +18,7 @@
 	function generatePassword() {
 		password = "";
 		let words = repository.get(language).words;
-		console.log('words2: ', words);
+		//console.log('words2: ', words);
 		for (var i = 0; i < passwordLength; i++ ) {
 			let diceCount = repository.get(language).diceCount;
 			let key = rollDices(diceCount);
@@ -49,37 +47,58 @@
 	.container {
 		width: 600px;
 		border: 1px solid #ffffff;
+		
+		/*margin: 0 auto;*/
 		display: inline-grid;
 	}
-	.column {
-		display: inline-block;
-		width: 50%;
+
+	.column-left {
+		float: left;
+		white-space: nowrap;
 	}
+
+	.column-right {
+		width: 300px;
+		float: right;
+		box-sizing: border-box;
+	}
+
 </style>
 
 <div class="container">
 	<div>
-		<label class="column">language</label>
-		<select class="column" bind:value={language} on:change="{async (e) => {let words = await getWordsMap(language); repository.set(language, words); } }">
+		<label class="column-left" for="language_ctrl">language:</label>
+		<select 	class="column-right"
+							id="language_ctrl" 
+							bind:value={language} 
+							on:change="{async (e) => {let words = await getWordsMap(language); repository.set(language, words); } }"
+							>
 			<option value="en">English</option>
 			<option value="pl">Polish</option>
 			<option value="fi">Finnish</option>
 			<option value="mi">Maori</option>
 		</select>
 	</div>
-	<div >
-		<label class="column">separator:</label>
-		<input class="column" bind:value={separator} />
+	<div>
+		<label 	class="column-left"
+					 	for="password_ctrl">words per password (4-10):</label>
+		<input 	id="password_ctrl" 	
+						class="column-right"
+					 	type="number" 
+					 	bind:value={passwordLength} 
+					 	min=4 max=10/>
 	</div>
 	<div>
-		<label class="column">words per password (4-10):</label>
-		<input class="column" type="number" bind:value={passwordLength} min=4 max=10/>
+			<label 	class="column-left" 
+						 	for="separator_ctrl">separator:</label>
+			<input 	id="separator_ctrl" 
+							class="column-right" 
+							bind:value={separator} />
 	</div>
 	<div>
 		<button on:click={generatePassword}>
 			Generate password
 		</button>
 	</div>
-	<!-- <p>generated password:</p> -->
 	<p>{password}</p>
 </div>
