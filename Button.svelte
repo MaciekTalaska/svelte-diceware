@@ -15,9 +15,16 @@
 	let language = defaltLanguage;
 	let repository = new Map();
 
-	onMount(async function() {
+	async function loadDicewareWordList(){
+		if ( repository.has(language)) {
+			return;
+		}
 		let words =  await getWordsMap(language);
 		repository.set(language, words);
+	}
+
+	onMount(async function() {
+		await loadDicewareWordList();
 	})
 
 	function generatePassword() {
@@ -84,8 +91,7 @@
 		<select 	class="column-right"
 							id="language_ctrl" 
 							bind:value={language} 
-							on:change="{async (e) => {let words = await getWordsMap(language); repository.set(language, words); } }"
-							>
+							on:change="{async (e) => loadDicewareWordList() }">
 			<option value="en">English</option>
 			<option value="pl">Polish</option>
 			<option value="fi">Finnish</option>
