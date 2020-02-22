@@ -8,11 +8,12 @@
   const MAX_PASS_LENGTH = 10;
   const MIN_PASS_LENGTH = 4;
   const defaultLength = MIN_PASS_LENGTH;
+  const defaltLanguage = "en";
+
 	let passwordLength = defaultLength;
 	let password = "";
 	let separator = defaultSeparator;
-	let language = "fi";
-	let languages = ['en', 'pl', 'fi', 'mi'];
+	let language = defaltLanguage;
 	let repository = new Map();
 
 
