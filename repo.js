@@ -9,21 +9,34 @@ let getWordsMap = function(language) {
 function getWordsMapFromString(data) {
   let list = Array.from(data.split(/\n/));
   let map = new Map();
+  let newList = null;
+
+  console.log('dictionary length: ', list.length);
 
   let diceCount = 0;
-  list.forEach(line => {
+  list.forEach((line, index) => {
     let [k, v] = line.split(/\s+/);
     if (diceCount == 0) {
       diceCount = k.length;
+      let size = list.length;
+      newList = new Array(size);
       console.log('k: ', k);
       console.log('v: ', v);
     }
+    if (v) {
+      newList[index] = v;
+    } else {
+      newList[index] = k;
+    }
 
     map.set(k, v);
+
   });
+  console.log('list of words: ', newList);
   return {
     diceCount: diceCount,
-    words: map
+    words: newList, //map,
+    size: list.length
   };
 }
 

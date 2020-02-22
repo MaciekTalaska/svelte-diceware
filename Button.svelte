@@ -1,6 +1,6 @@
 <script>
   import getWordsMap from "./repo.js";
-  import rollDices from './dice.js';
+  import getRandom from './dice.js';
   import { onMount } from "svelte";
 
 
@@ -27,8 +27,8 @@
 		let words = repository.get(language).words;
 		for (var i = 0; i < passwordLength; i++ ) {
 			let diceCount = repository.get(language).diceCount;
-			let key = rollDices(diceCount);
-			let newWord = words.get(key);
+			let key =  getRandom() % repository.get(language).size; //rollDices(diceCount);
+			let newWord = repository.get(language).words[key];  //words.get(key);
 			if (password !== "") {
 				password += separator + newWord
 			} else {

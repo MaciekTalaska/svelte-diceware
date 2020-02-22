@@ -1,6 +1,12 @@
 const diceCount = 5;
 
-let rollDices = function(dices) {
+let getRandom = function() {
+  let input = new Uint32Array(1);
+  window.crypto.getRandomValues(input);
+  return input[0];
+}
+
+let rollDices = function() {
   if (dices < 1) {
     throw new Error('[Dice.rollDices]: at least one dice has to be thrown!');
   }
@@ -28,4 +34,4 @@ function dicesToKey(numbers) {
   return key;
 }
 
-export default rollDices;
+export default getRandom;
