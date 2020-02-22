@@ -23,30 +23,6 @@ function getWordsListFromString(data) {
   };
 }
 
-
-// returns an object containing:
-//   diceCount: number of dices to throw
-//   words: map (k,v) of (index, word)
-function getWordsMapFromString(data) {
-  let list = Array.from(data.split(/\n/));
-  let diceCount = 0;
-  let newList;
-
-  list.forEach((line, index) => {
-    let [k, v] = line.split(/\s+/);
-    if (diceCount == 0) {
-      diceCount = k.length;
-      newList = new Array(list.length);
-    }
-    newList[index] = (v) ? v : k;
-  });
-  return {
-    diceCount: diceCount,
-    words: newList,
-    size: list.length
-  };
-}
-
 function loadWordsList(url) {
   return new Promise((resolve, reject) => {
     let headers = new Headers();
