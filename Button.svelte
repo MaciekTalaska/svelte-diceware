@@ -3,12 +3,18 @@
   import rollDices from './dice.js';
   import { onMount } from "svelte";
 
-	let passwordLength = 4;
+
+  const defaultSeparator = "-";
+  const MAX_PASS_LENGTH = 10;
+  const MIN_PASS_LENGTH = 4;
+  const defaultLength = MIN_PASS_LENGTH;
+	let passwordLength = defaultLength;
 	let password = "";
-	let separator = "-";
+	let separator = defaultSeparator;
 	let language = "fi";
-	let all_languages = ['en', 'pl', 'fi', 'mi'];
+	let languages = ['en', 'pl', 'fi', 'mi'];
 	let repository = new Map();
+
 
 	onMount(async function() {
 		let words =  await getWordsMap(language);
@@ -18,7 +24,6 @@
 	function generatePassword() {
 		password = "";
 		let words = repository.get(language).words;
-		//console.log('words2: ', words);
 		for (var i = 0; i < passwordLength; i++ ) {
 			let diceCount = repository.get(language).diceCount;
 			let key = rollDices(diceCount);
@@ -29,7 +34,16 @@
 				password = newWord;
 			}
 		}
-}
+	}
+
+	function validatePasswordLength() {
+		if (passwordLength > MAX_PASS_LENGTH) {
+			passwordLength = MAX_PASS_LENGTH;
+		}
+		if (passwordLength < MIN_PASS_LENGTH) {
+			passwordLength = MIN_PASS_LENGTH;
+		}
+	}
 </script>
 
 <style>
@@ -86,7 +100,10 @@
 						class="column-right"
 					 	type="number" 
 					 	bind:value={passwordLength} 
-					 	min=4 max=10/>
+					 	onkeyup="this.value=this.value.replace(/[^\d]/,'');"
+					 	onblur="this.value=((this.value>=4)&&(this.value<=10)) ? this.value : {defaultLength};"
+					 	on:change="{validatePasswordLength}"
+					 	min=4 max=10 vlaue={defaultLength}/>
 	</div>
 	<div>
 			<label 	class="column-left" 
