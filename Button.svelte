@@ -101,7 +101,6 @@
 					 	type="number" 
 					 	bind:value={passwordLength} 
 					 	onkeyup="this.value=this.value.replace(/[^\d]/,'');"
-					 	onblur="this.value=((this.value>=4)&&(this.value<=10)) ? this.value : {defaultLength};"
 					 	on:change="{validatePasswordLength}"
 					 	min=4 max=10 vlaue={defaultLength}/>
 	</div>
