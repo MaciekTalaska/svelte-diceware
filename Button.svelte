@@ -3,7 +3,6 @@
   import getRandom from './dice.js';
   import { onMount } from "svelte";
 
-
   const defaultSeparator = "-";
   const MAX_PASS_LENGTH = 10;
   const MIN_PASS_LENGTH = 4;
@@ -16,7 +15,6 @@
 	let language = defaltLanguage;
 	let repository = new Map();
 
-
 	onMount(async function() {
 		let words =  await getWordsMap(language);
 		repository.set(language, words);
@@ -27,8 +25,8 @@
 		let words = repository.get(language).words;
 		for (var i = 0; i < passwordLength; i++ ) {
 			let diceCount = repository.get(language).diceCount;
-			let key =  getRandom() % repository.get(language).size; //rollDices(diceCount);
-			let newWord = repository.get(language).words[key];  //words.get(key);
+			let index =  getRandom() % repository.get(language).size;
+			let newWord = repository.get(language).words[index];
 			if (password !== "") {
 				password += separator + newWord
 			} else {

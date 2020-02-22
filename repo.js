@@ -4,38 +4,45 @@ let getWordsMap = function(language) {
 }
 
 // returns an object containing:
+//   size: number of dices to throw
+//   words: list (array) of words
+function getWordsListFromString(data) {
+  let list = Array.from(data.split(/\n/));
+  let newList = null;
+
+  list.forEach((line, index) => {
+    let [k, v] = line.split(/\s+/);
+    if (newList == null) {
+      newList = new Array(list.length);
+    }
+    newList[index] = (v) ? v : k;
+  });
+  return {
+    words: newList,
+    size: list.length
+  };
+}
+
+
+// returns an object containing:
 //   diceCount: number of dices to throw
 //   words: map (k,v) of (index, word)
 function getWordsMapFromString(data) {
   let list = Array.from(data.split(/\n/));
-  let map = new Map();
-  let newList = null;
-
-  console.log('dictionary length: ', list.length);
-
   let diceCount = 0;
+  let newList;
+
   list.forEach((line, index) => {
     let [k, v] = line.split(/\s+/);
     if (diceCount == 0) {
       diceCount = k.length;
-      let size = list.length;
-      newList = new Array(size);
-      console.log('k: ', k);
-      console.log('v: ', v);
+      newList = new Array(list.length);
     }
-    if (v) {
-      newList[index] = v;
-    } else {
-      newList[index] = k;
-    }
-
-    map.set(k, v);
-
+    newList[index] = (v) ? v : k;
   });
-  console.log('list of words: ', newList);
   return {
     diceCount: diceCount,
-    words: newList, //map,
+    words: newList,
     size: list.length
   };
 }
@@ -47,8 +54,8 @@ function loadWordsList(url) {
     fetch(url, headers)
       .then(res => res.text())
       .then(data => {
-        let map = getWordsMapFromString(data);
-        resolve(map);
+        let result = getWordsListFromString(data);
+        resolve(result);
       })
   });
 }
