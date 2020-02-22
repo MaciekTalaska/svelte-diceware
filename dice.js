@@ -25,7 +25,6 @@ function dicesToKey(numbers) {
     array.length = 5;
   }
   let key = array.join('');
-  console.log('key ', key)
   return key;
 }
 

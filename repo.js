@@ -15,7 +15,8 @@ function getWordsMapFromString(data) {
     let [k, v] = line.split(/\s+/);
     if (diceCount == 0) {
       diceCount = k.length;
-      console.log('k lenghth', diceCount);
+      console.log('k: ', k);
+      console.log('v: ', v);
     }
 
     map.set(k, v);
@@ -24,8 +25,6 @@ function getWordsMapFromString(data) {
     diceCount: diceCount,
     words: map
   };
-  //console.log('length of words: ', map.size);
-  //return map;
 }
 
 function loadWordsList(url) {
