@@ -12,5 +12,5 @@
 <main>
   <h1>Diceware password generator in Svelte</h1>
   <Button />
-  <p>this project on github: <a href="https://github.com/MaciekTalaska/svelte-diceware">svelte-diceware</a>
+  <small><p style="margin-top: 60px;">this project on github: <a href="https://github.com/MaciekTalaska/svelte-diceware">svelte-diceware</a></p></small>
 </main>

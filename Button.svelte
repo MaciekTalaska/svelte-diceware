@@ -70,6 +70,9 @@
 		
 		/*margin: 0 auto;*/
 		display: inline-grid;
+		background-color: lightblue;
+		padding: 60px;
+		border-radius: 5px;
 	}
 
 	.column-left {
@@ -121,5 +124,5 @@
 			Generate password
 		</button>
 	</div>
-	<p>{password}</p>
 </div>
+<p>{password}</p>
