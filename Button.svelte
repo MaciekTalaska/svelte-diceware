@@ -29,11 +29,10 @@
 
 	function generatePassword() {
 		password = "";
-		let words = repository.get(language).words;
+		let repo = repository.get(language);
 		for (var i = 0; i < passwordLength; i++ ) {
-			let diceCount = repository.get(language).diceCount;
-			let index =  getRandom() % repository.get(language).size;
-			let newWord = repository.get(language).words[index];
+			let index =  getRandom() % repo.size;
+			let newWord = repo.words[index];
 			if (password !== "") {
 				password += separator + newWord
 			} else {
