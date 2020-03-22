@@ -3,9 +3,7 @@ let getWordsMap = function(language) {
   return loadWordsList(url).then(data => data);
 }
 
-// returns an object containing:
-//   size: number of dices to throw
-//   words: list (array) of words
+// returns list (array) of words
 function getWordsListFromString(data) {
   let list = Array.from(data.split(/\n/));
   let newList = null;
@@ -17,10 +15,7 @@ function getWordsListFromString(data) {
     }
     newList[index] = (v) ? v : k;
   });
-  return {
-    words: newList,
-    size: list.length
-  };
+  return newList;
 }
 
 function loadWordsList(url) {
