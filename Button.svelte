@@ -30,16 +30,14 @@
 	function generatePassword() {
 		password = "";
 		let words = repository.get(language);
+		let allwords = [];
 		console.log('words acquired. size: ', words.length);
 		for (var i = 0; i < passwordLength; i++ ) {
 			let index =  getRandom() % words.length;
 			let newWord = words[index];
-			if (password !== "") {
-				password += separator + newWord
-			} else {
-				password = newWord;
-			}
+      allwords.push(newWord);
 		}
+    password = allwords.join(separator);
 	}
 
 	function validatePasswordLength() {
