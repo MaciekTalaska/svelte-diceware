@@ -32,7 +32,7 @@
 		let words = repository.get(language);
 		let allwords = new Array(passwordLength);
 		console.log('words acquired. size: ', words.length);
-		allwords = allwords.fill().map((v,i) => words[getRandom() % words.length]);
+		allwords = allwords.fill().map(_ => words[getRandom() % words.length]);
     password = allwords.join(separator);
 	}
 
