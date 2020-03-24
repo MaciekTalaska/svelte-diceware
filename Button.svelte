@@ -30,13 +30,9 @@
 	function generatePassword() {
 		password = "";
 		let words = repository.get(language);
-		let allwords = [];
+		let allwords = new Array(passwordLength);
 		console.log('words acquired. size: ', words.length);
-		for (var i = 0; i < passwordLength; i++ ) {
-			let index =  getRandom() % words.length;
-			let newWord = words[index];
-      allwords.push(newWord);
-		}
+		allwords = allwords.fill().map((v,i) => words[getRandom() % words.length]);
     password = allwords.join(separator);
 	}
 
