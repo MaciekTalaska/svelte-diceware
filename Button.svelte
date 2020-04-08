@@ -31,7 +31,6 @@
 		password = "";
 		let words = repository.get(language);
 		let allwords = new Array(passwordLength);
-		console.log('words acquired. size: ', words.length);
 		allwords = allwords.fill().map(_ => words[getRandom() % words.length]);
     password = allwords.join(separator);
 	}
@@ -104,7 +103,7 @@
 					 	bind:value={passwordLength} 
 					 	onkeyup="this.value=this.value.replace(/[^\d]/,'');"
 					 	on:change="{validatePasswordLength}"
-					 	min=4 max=10 vlaue={defaultLength}/>
+					 	min=4 max=10/>
 	</div>
 	<div>
 			<label 	class="column-left" 
