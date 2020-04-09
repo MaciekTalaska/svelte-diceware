@@ -28,7 +28,8 @@
     "start": "sirv public",
     "start:dev": "sirv public --dev",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d public"
+    "deploy": "gh-pages -d public",
+    "lint": "eslint . --ext .svelte,.js"
   },
   "keywords": [
     "svelte",

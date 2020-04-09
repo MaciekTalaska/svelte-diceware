@@ -32,7 +32,7 @@
 		let words = repository.get(language);
 		let allwords = new Array(passwordLength);
 		allwords = allwords.fill().map(_ => words[getRandom() % words.length]);
-    password = allwords.join(separator);
+    	password = allwords.join(separator);
 	}
 
 	function validatePasswordLength() {
