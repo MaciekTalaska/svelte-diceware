@@ -31,8 +31,8 @@
 		password = "";
 		let words = repository.get(language);
 		let allwords = new Array(passwordLength);
-		allwords = allwords.fill().map(_ => words[getRandom() % words.length]);
-    	password = allwords.join(separator);
+		allwords = allwords.fill().map(() => words[getRandom() % words.length]);
+		password = allwords.join(separator);
 	}
 
 	function validatePasswordLength() {
@@ -87,7 +87,7 @@
 		<select 	class="column-right"
 							id="language_ctrl" 
 							bind:value={language} 
-							on:change="{async (e) => loadDicewareWordList() }">
+							on:change="{async () => loadDicewareWordList() }">
 			<option value="en">English</option>
 			<option value="pl">Polish</option>
 			<option value="fi">Finnish</option>
