@@ -23,6 +23,7 @@
     "svelte": "^3.20.1"
   },
   "scripts": {
+    "clean": "rm public -rfd",
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
     "dev": "run-p start:dev autobuild",
