@@ -10,7 +10,7 @@ import copy from 'rollup-plugin-copy'
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: "index.js",
+  input: "src/index.js",
   output: {
     sourcemap: true,
     format: "iife",
@@ -31,7 +31,7 @@ export default {
     // copy assets
     copy({
       targets: [
-        { src: 'index.html', dest: 'public' },
+        { src: 'src/index.html', dest: 'public' },
         { src: 'assets/diceware-*.txt', dest: 'public' }
       ]
     }),
