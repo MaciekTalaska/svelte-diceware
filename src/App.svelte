@@ -1,5 +1,5 @@
 <script>
-  import Button from "./Button.svelte";
+  import Diceware from "./Diceware.svelte";
 </script>
 
 <style>
@@ -11,7 +11,7 @@
 
 <main>
   <h1>Diceware password generator in Svelte</h1>
-  <Button />
+  <Diceware />
   <small>
     <p style="margin-top: 60px;">
       this project on github:
