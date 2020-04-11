@@ -59,8 +59,10 @@
     border: none;
     padding: 8px 12px;
     border-radius: 2px;
-    max-width: 60%;
+    /* max-width: 60%; */
     margin: 10px;
+    text-transform: capitalize;
+    padding: 10px 20px;
   }
   div {
     padding-bottom: 10px;
@@ -72,7 +74,7 @@
     /*margin: 0 auto;*/
     display: inline-grid;
     background-color: lightblue;
-    padding: 60px;
+    padding: 60px 60px 20px 60px;
     border-radius: 5px;
   }
 
@@ -107,9 +109,9 @@
       bind:value={language}
       on:change={async () => loadDicewareWordList()}>
       <option value="en">English</option>
-      <option value="pl">Polish</option>
       <option value="fi">Finnish</option>
       <option value="mi">Maori</option>
+      <option value="pl">Polish</option>
     </select>
   </div>
   <div>
@@ -136,10 +138,10 @@
   <div>
     <textarea
       id="passwordArea"
-      readonly
       class="password-area"
+      readonly
+      rows="1"
       value={password} />
     <button on:click={copyPasswordToClipboard}>copy to clipboard</button>
   </div>
 </div>
-<p>{password}</p>
