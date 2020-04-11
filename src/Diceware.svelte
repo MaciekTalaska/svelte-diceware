@@ -43,6 +43,13 @@
       passwordLength = MIN_PASS_LENGTH;
     }
   }
+
+  function copyPasswordToClipboard() {
+    let el = document.getElementById("passwordArea");
+    el.select();
+    document.execCommand("copy");
+    el.selectionStart = el.selectionEnd;
+  }
 </script>
 
 <style>
@@ -53,6 +60,7 @@
     padding: 8px 12px;
     border-radius: 2px;
     max-width: 60%;
+    margin: 10px;
   }
   div {
     padding-bottom: 10px;
@@ -77,6 +85,16 @@
     width: 300px;
     float: right;
     box-sizing: border-box;
+  }
+
+  .password-area {
+    background-color: aliceblue;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
   }
 </style>
 
@@ -114,6 +132,14 @@
   </div>
   <div>
     <button on:click={generatePassword}>Generate password</button>
+  </div>
+  <div>
+    <textarea
+      id="passwordArea"
+      readonly
+      class="password-area"
+      value={password} />
+    <button on:click={copyPasswordToClipboard}>copy to clipboard</button>
   </div>
 </div>
 <p>{password}</p>
