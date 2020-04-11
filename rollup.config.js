@@ -32,7 +32,8 @@ export default {
     copy({
       targets: [
         { src: 'src/index.html', dest: 'public' },
-        { src: 'assets/diceware-*.txt', dest: 'public' }
+        { src: 'assets/diceware-*.txt', dest: 'public' },
+        { src: 'assets/favicon.ico', dest: 'public' }
       ]
     }),
 
