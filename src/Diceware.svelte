@@ -6,7 +6,7 @@
   const DEFAULT_SEPARATOR = "-";
   const MAX_PASS_LENGTH = 10;
   const MIN_PASS_LENGTH = 4;
-  const DEFAULT_PASS_LENGTH = MIN_PASS_LENGTH;
+  const DEFAULT_PASS_LENGTH = 6;
   const DEFAULT_LANGUAGE = "en";
 
   let passwordLength = DEFAULT_PASS_LENGTH;
