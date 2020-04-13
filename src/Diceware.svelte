@@ -3,16 +3,16 @@
   import getRandom from "./dice.js";
   import { onMount } from "svelte";
 
-  const defaultSeparator = "-";
+  const DEFAULT_SEPARATOR = "-";
   const MAX_PASS_LENGTH = 10;
   const MIN_PASS_LENGTH = 4;
-  const defaultLength = MIN_PASS_LENGTH;
-  const defaltLanguage = "en";
+  const DEFAULT_PASS_LENGTH = MIN_PASS_LENGTH;
+  const DEFAULT_LANGUAGE = "en";
 
-  let passwordLength = defaultLength;
+  let passwordLength = DEFAULT_PASS_LENGTH;
   let password = "";
-  let separator = defaultSeparator;
-  let language = defaltLanguage;
+  let separator = DEFAULT_SEPARATOR;
+  let language = DEFAULT_LANGUAGE;
   let repository = new Map();
 
   async function loadDicewareWordList() {
@@ -116,7 +116,7 @@
   </div>
   <div>
     <label class="column-left" for="password_ctrl">
-      words per password (4-10):
+      words per password ({MIN_PASS_LENGTH}-{MAX_PASS_LENGTH}):
     </label>
     <input
       id="password_ctrl"
@@ -125,8 +125,8 @@
       bind:value={passwordLength}
       onkeyup="this.value=this.value.replace(/[^\d]/,'');"
       on:change={validatePasswordLength}
-      min="4"
-      max="10" />
+      min={MIN_PASS_LENGTH}
+      max={MAX_PASS_LENGTH} />
   </div>
   <div>
     <label class="column-left" for="separator_ctrl">separator:</label>
