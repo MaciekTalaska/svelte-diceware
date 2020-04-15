@@ -1,5 +1,5 @@
 <script>
-  import Diceware from "./Diceware.svelte";
+  import Diceware from "./components/diceware/Diceware.svelte";
 </script>
 
 <style>
