@@ -57,9 +57,7 @@
     background: #ff3e00;
     color: white;
     border: none;
-    padding: 8px 12px;
     border-radius: 2px;
-    /* max-width: 60%; */
     margin: 10px;
     text-transform: capitalize;
     padding: 10px 20px;
@@ -71,7 +69,6 @@
     width: 600px;
     border: 1px solid #ffffff;
 
-    /*margin: 0 auto;*/
     display: inline-grid;
     background-color: lightblue;
     padding: 60px 60px 20px 60px;
