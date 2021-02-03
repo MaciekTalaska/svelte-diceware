@@ -54,7 +54,7 @@
 
 <style>
   button {
-    background: #ff3e00;
+    background: navy;
     color: white;
     border: none;
     border-radius: 2px;
