@@ -54,7 +54,7 @@
 
 <style>
   button {
-    background: navy;
+    background: steelblue;
     color: white;
     border: none;
     border-radius: 2px;
