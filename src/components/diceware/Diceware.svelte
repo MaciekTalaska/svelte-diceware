@@ -152,7 +152,7 @@
       id="passwordArea"
       class="password-area"
       readonly
-      rows="1"
+      rows="2"
       value={password} />
     <button on:click={copyPasswordToClipboard}>copy to clipboard</button>
   </div>
