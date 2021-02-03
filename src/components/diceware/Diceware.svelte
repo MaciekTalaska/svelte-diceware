@@ -65,8 +65,8 @@
   div {
     padding-bottom: 10px;
   }
+
   .container {
-    width: 600px;
     border: 1px solid #ffffff;
 
     display: inline-grid;
@@ -74,16 +74,31 @@
     padding: 60px 60px 20px 60px;
     border-radius: 5px;
   }
+  @media only screen and (min-width: 800px) {
+    .container {
+      width: 600px;
+    }
+  }
 
   .column-left {
-    float: left;
-    white-space: nowrap;
   }
 
   .column-right {
-    width: 300px;
-    float: right;
     box-sizing: border-box;
+    width: 100%;  
+  }
+
+  @media only screen and (min-width: 800px) {
+    .column-left {
+      float: left;
+      white-space: nowrap;
+    }
+
+    .column-right {
+      width: 300px;
+      float: right;
+      box-sizing: border-box;
+    }
   }
 
   .password-area {
